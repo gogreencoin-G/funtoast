@@ -1,1 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funtoast 🍞 | Life Is Short. Eat Toast.</title>
 
+<meta name="description" content="Funtoast — a fun community built around toast, memes and good vibes.">
+<meta name="theme-color" content="#f59e0b">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#120b05;
+  color:#fff7ed;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+/* NAVBAR */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(18,11,5,.88);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,183,77,.15);
+}
+
+.nav-inner{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  color:#ffb52e;
+}
+
+.logo span{
+  margin-right:5px;
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+  font-size:14px;
+  font-weight:bold;
+  color:#f7d9b0;
+}
+
+.nav-links a:hover{
+  color:#ffb52e;
+}
+
+.nav-btn{
+  padding:11px 18px;
+  border-radius:25px;
+  background:#ff9f1c;
+  color:#1b0d03;
+  font-weight:900;
+}
+
+/* HERO */
+.hero{
+  min-height:680px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background:
+    radial-gradient(circle at 75% 35%,rgba(255,170,40,.18),transparent 30%),
+    radial-gradient(circle at 20% 70%,rgba(255,100,20,.12),transparent 30%),
+    #120b05;
+}
+
+.hero-content{
+  text-align:center;
+  width:100%;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid rgba(255,180,60,.4);
+  border-radius:30px;
+  color:#ffc15a;
+  background:rgba(255,166,30,.08);
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(48px,9vw,88px);
+  line-height:.95;
+  font-weight:1000;
+  letter-spacing:-4px;
+}
+
+.hero h1 span{
+  color:#ffad25;
+}
+
+.hero p{
+  max-width:650px;
+  margin:25px auto;
+  color:#d9b991;
+  font-size:18px;
+  line-height:1.7;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+.btn{
+  padding:15px 25px;
+  border-radius:30px;
+  font-weight:900;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.btn-primary{
+  background:#ff9f1c;
+  color:#1b0d03;
+  box-shadow:0 8px 30px rgba(255,159,28,.25);
+}
+
+.btn-secondary{
+  border:1px solid #6b4b2d;
+  background:#211309;
+  color:#ffe2bd;
+}
+
+/* TOAST */
+.toast-area{
+  margin:55px auto 0;
+  width:210px;
+  height:210px;
+  position:relative;
+}
+
+.toast{
+  width:180px;
+  height:190px;
+  position:absolute;
+  left:15px;
+  top:5px;
+  background:linear-gradient(145deg,#e9a13b,#b95b17);
+  border-radius:45% 45% 40% 40%;
+  border:8px solid #7b3c10;
+  box-shadow:
+    inset 0 0 0 8px rgba(255,204,115,.2),
+    0 20px 50px rgba(0,0,0,.45);
+  transform:rotate(-4deg);
+  animation:float 3s ease-in-out infinite;
+}
+
+.toast:before{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border-radius:40%;
+  border:4px dashed rgba(98,42,9,.35);
+}
+
+.eye{
+  position:absolute;
+  width:22px;
+  height:28px;
+  background:#251208;
+  border-radius:50%;
+  top:58px;
+}
+
+.eye.left{left:50px;}
+.eye.right{right:50px;}
+
+.mouth{
+  position:absolute;
+  width:65px;
+  height:35px;
+  background:#2a1007;
+  border-radius:10px 10px 40px 40px;
+  left:50%;
+  transform:translateX(-50%);
+  top:102px;
+}
+
+.blush{
+  position:absolute;
+  width:20px;
+  height:10px;
+  border-radius:50%;
+  background:#e66b45;
+  top:96px;
+}
+
+.blush.left{left:25px;}
+.blush.right{right:25px;}
+
+.arm{
+  position:absolute;
+  width:60px;
+  height:10px;
+  background:#2a1007;
+  border-radius:10px;
+  top:105px;
+}
+
+.arm.left{
+  left:-50px;
+  transform:rotate(25deg);
+}
+
+.arm.right{
+  right:-50px;
+  transform:rotate(-25deg);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(-4deg);}
+  50%{transform:translateY(-15px) rotate(4deg);}
+}
+
+/* SECTIONS */
+section{
+  padding:90px 0;
+}
+
+.section-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.section-title span{
+  color:#ffad25;
+}
+
+.section-subtitle{
+  text-align:center;
+  color:#bfa58a;
+  max-width:650px;
+  margin:0 auto 45px;
+  line-height:1.7;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  padding:30px;
+  background:linear-gradient(145deg,#211308,#170d06);
+  border:1px solid #3b2717;
+  border-radius:22px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#b66c1c;
+}
+
+.card-icon{
+  font-size:40px;
+  margin-bottom:18px;
+}
+
+.card h3{
+  margin-bottom:12px;
+  color:#ffd08a;
+}
+
+.card p{
+  color:#bda58b;
+  line-height:1.7;
+}
+
+/* TOKEN */
+.token-box{
+  max-width:800px;
+  margin:auto;
+  padding:35px;
+  background:#1b1008;
+  border:1px solid #3c2919;
+  border-radius:25px;
+}
+
+.token-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:17px 0;
+  border-bottom:1px solid #332216;
+}
+
+.token-row:last-child{
+  border-bottom:0;
+}
+
+.token-row span:first-child{
+  color:#b99d7d;
+}
+
+.token-row span:last-child{
+  font-weight:bold;
+  color:#ffd28c;
+  text-align:right;
+}
+
+/* ROADMAP */
+.roadmap{
+  display:grid;
+  gap:18px;
+  max-width:800px;
+  margin:auto;
+}
+
+.phase{
+  display:flex;
+  gap:20px;
+  padding:25px;
+  background:#1b1008;
+  border:1px solid #382515;
+  border-radius:20px;
+}
+
+.phase-number{
+  min-width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#ff9f1c;
+  color:#1b0d03;
+  font-weight:1000;
+}
+
+.phase h3{
+  margin-bottom:7px;
+}
+
+.phase p{
+  color:#bda58b;
+  line-height:1.6;
+}
+
+/* COMMUNITY */
+.community{
+  text-align:center;
+  background:
+    radial-gradient(circle at center,rgba(255,159,28,.12),transparent 45%),
+    #100903;
+}
+
+.community h2{
+  font-size:45px;
+  margin-bottom:15px;
+}
+
+.community p{
+  color:#c8ae91;
+  margin-bottom:25px;
+}
+
+/* FOOTER */
+footer{
+  padding:35px 0;
+  border-top:1px solid #302015;
+  text-align:center;
+  color:#8e7761;
+  font-size:13px;
+}
+
+.footer-logo{
+  color:#ffad25;
+  font-size:24px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+/* MOBILE */
+@media(max-width:750px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .nav-inner{
+    height:64px;
+  }
+
+  .hero{
+    min-height:650px;
+  }
+
+  .hero h1{
+    font-size:54px;
+    letter-spacing:-3px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .token-box{
+    padding:22px;
+  }
+
+  .token-row{
+    font-size:14px;
+  }
+
+  .phase{
+    padding:20px;
+  }
+
+  .community h2{
+    font-size:34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="logo">🍞 FUNTOAST</a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#token">Token</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#community">Community</a>
+    </div>
+
+    <a href="#community" class="nav-btn">Join Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+
+    <div class="badge">🍞 THE INTERNET'S MOST FUN TOAST</div>
+
+    <h1>
+      LIFE IS SHORT.<br>
+      <span>EAT TOAST.</span>
+    </h1>
+
+    <p>
+      Welcome to Funtoast — a playful community powered by memes,
+      friendship, laughter and an unreasonable love for crispy toast.
+    </p>
+
+    <div class="buttons">
+      <a href="#" class="btn btn-primary">🍞 Buy FUNTOAST</a>
+      <a href="#community" class="btn btn-secondary">🚀 Join Community</a>
+    </div>
+
+    <div class="toast-area">
+      <div class="toast">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+        <div class="blush left"></div>
+        <div class="blush right"></div>
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+
+    <h2 class="section-title">Why <span>Funtoast?</span> 🍞</h2>
+
+    <p class="section-subtitle">
+      No boring vibes. No complicated story. Just a fun community,
+      hilarious memes and one very crispy piece of toast.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">😂</div>
+        <h3>Made For Fun</h3>
+        <p>
+          Funtoast is all about bringing people together through
+          humor, creativity and good vibes.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔥</div>
+        <h3>Crispy Community</h3>
+        <p>
+          A community where memes are fresh, conversations are fun
+          and nobody takes toast too seriously.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Toast To The Moon</h3>
+        <p>
+          Build the community, spread the memes and see how far
+          our little toast can travel.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOKEN -->
+<section id="token">
+  <div class="container">
+
+    <h2 class="section-title">Token <span>Info</span></h2>
+
+    <p class="section-subtitle">
+      Simple. Transparent. Easy to understand.
+    </p>
+
+    <div class="token-box">
+
+      <div class="token-row">
+        <span>Name</span>
+        <span>Funtoast</span>
+      </div>
+
+      <div class="token-row">
+        <span>Symbol</span>
+        <span>FUNTOAST</span>
+      </div>
+
+      <div class="token-row">
+        <span>Chain</span>
+        <span>Coming Soon</span>
+      </div>
+
+      <div class="token-row">
+        <span>Total Supply</span>
+        <span>Coming Soon</span>
+      </div>
+
+      <div class="token-row">
+        <span>Contract</span>
+        <span>Not Released Yet</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="container">
+
+    <h2 class="section-title">Toast <span>Roadmap</span> 🥪</h2>
+
+    <p class="section-subtitle">
+      From the kitchen counter to the whole internet.
+    </p>
+
+    <div class="roadmap">
+
+      <div class="phase">
+        <div class="phase-number">1</div>
+        <div>
+          <h3>🍞 Toast Awakening</h3>
+          <p>Launch the website, build the community and introduce our legendary toast.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-number">2</div>
+        <div>
+          <h3>😂 Meme Takeover</h3>
+          <p>Memes everywhere. Toast everywhere. Maximum fun.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-number">3</div>
+        <div>
+          <h3>🌎 Community Expansion</h3>
+          <p>Grow the Funtoast family and collaborate with creators.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-number">4</div>
+        <div>
+          <h3>🚀 Moon Toast</h3>
+          <p>Take Funtoast to the next level and keep the community crispy.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community" class="community">
+
+  <div class="container">
+
+    <h2>Ready to Get <span>Toasty?</span> 🔥</h2>
+
+    <p>
+      Follow Funtoast, join the community and bring your best memes.
+    </p>
+
+    <div class="buttons">
+
+      <a href="#" class="btn btn-primary">
+        𝕏 Follow on X
+      </a>
+
+      <a href="#" class="btn btn-secondary">
+        💬 Join Telegram
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-logo">🍞 FUNTOAST</div>
+    <p>Stay Crispy. Stay Funny. Stay Toasty.</p>
+    <p style="margin-top:10px;">© 2026 Funtoast. All vibes reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
