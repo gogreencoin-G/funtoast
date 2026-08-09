@@ -182,7 +182,81 @@ nav{
   font-size:18px;
   line-height:1.7;
 }
+/* SOCIAL TRADING */
+.social-trading{
+  max-width:900px;
+  margin:35px auto 5px;
+  padding:28px 30px;
+  background:linear-gradient(145deg,rgba(255,159,28,.12),rgba(45,20,5,.85));
+  border:1px solid rgba(255,173,37,.35);
+  border-radius:24px;
+  text-align:left;
+  box-shadow:0 15px 45px rgba(0,0,0,.35);
+  position:relative;
+  overflow:hidden;
+}
 
+.social-trading::before{
+  content:"";
+  position:absolute;
+  top:-80px;
+  right:-80px;
+  width:180px;
+  height:180px;
+  background:rgba(255,159,28,.12);
+  border-radius:50%;
+}
+
+.social-trading h2{
+  position:relative;
+  margin-bottom:14px;
+  color:#ffb52e;
+  font-size:28px;
+  font-weight:1000;
+  letter-spacing:-.5px;
+}
+
+.social-trading p{
+  position:relative;
+  margin:10px 0;
+  color:#ead3b5;
+  font-size:16px;
+  line-height:1.75;
+  font-weight:600;
+}
+
+.social-trading .highlight{
+  color:#fff;
+  font-weight:900;
+}
+
+.social-trading .final-line{
+  margin-top:18px;
+  color:#ffbd45;
+  font-size:18px;
+  font-weight:1000;
+  text-align:center;
+}
+
+@media(max-width:750px){
+  .social-trading{
+    margin:28px 8px 5px;
+    padding:22px 18px;
+  }
+
+  .social-trading h2{
+    font-size:24px;
+  }
+
+  .social-trading p{
+    font-size:14px;
+    line-height:1.7;
+  }
+
+  .social-trading .final-line{
+    font-size:16px;
+  }
+}
 .buttons{
   display:flex;
   justify-content:center;
@@ -571,7 +645,40 @@ footer{
       Welcome to Funtoast — a playful community powered by memes,
       friendship, laughter and an unreasonable love for crispy toast.
     </p>
+<!-- SOCIAL TRADING -->
+<div class="social-trading">
 
+  <h2>🍞 Trading Made Toasty</h2>
+
+  <p>
+    <span class="highlight">
+      Making toast takes patience. Trading FUNTOAST shouldn't. 😂
+    </span>
+  </p>
+
+  <p>
+    Pump.fun is making trading more social, simple, and community-driven.
+    With <span class="highlight">Callouts</span>, traders can share what
+    they're watching, discover new tokens, follow the conversation, and
+    turn trading into a more connected community experience.
+  </p>
+
+  <p>
+    Instead of searching through endless charts alone, social trading helps
+    bring people, ideas, and projects together. 🔥
+  </p>
+
+  <p>
+    At Funtoast, we love that idea. Because finding a fun project should be
+    easier than making perfect toast. 🍞😂
+  </p>
+
+  <p class="final-line">
+    Discover. Call out. Trade. Share. Toast. 🚀<br>
+    Life is short. Eat toast. Trade smart. Stay crispy. 🍞🌙
+  </p>
+
+</div>
     <div class="buttons">
       <a href="#" class="btn btn-primary">🍞 Buy FUNTOAST</a>
 
